@@ -1,7 +1,7 @@
 //GET /quizes/question
 
 exports.question = function(req, res) {
-  res.render('index', {pregunta: 'Capital de Italia'});
+  res.render('quizes/question', {pregunta: 'Capital de Italia'});
 };
 
 exports.answer = function(req, res) {
