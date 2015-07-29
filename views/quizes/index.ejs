@@ -1,0 +1,20 @@
+<h3>Busca una pregunta:</h3>
+<form method="get" action="/quizes">
+			Texto de la Pregunta: 
+			<input type="text" name="search" value=""/>
+			<input type="submit" value="Enviar"/>
+</form>
+<br/>
+<p>Buscará todas las preguntas existentes si no se desea filtrar por preguntas en la caja de Texto de la Pregunta. </p>
+<br/>
+<% if (quizes.length > 0) { %> 
+<h3>Preguntas encontradas:</h3>
+<table border = "1">
+<% var i; for(i=0; i < quizes.length; i++) { %>
+	<tr><td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr>
+<% } %>
+</table>
+<% } else { %>
+No se han encontrado preguntas, realice si lo desea un nuevo filtrado.
+<% } %>	
+ 
