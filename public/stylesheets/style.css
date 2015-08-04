@@ -11,3 +11,4 @@ nav span				{margin: 0px 10px 0px 0px;}
 .img-author				{width:25%; height:25%;}
 nav span				{margin: 0px 10px 0px 0px;}
 #ErrorMsgs				{color: #f61; font-size: smaller}
+span.right 				{float:right; text-align: right}
