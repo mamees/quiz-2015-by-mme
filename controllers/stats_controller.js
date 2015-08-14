@@ -13,7 +13,7 @@ exports.show = function (req, res,next) {
     models.Comment.count( { group : '"QuizId"'}).then(function (comments) {
         q5 = comments.length;
         q4 = q1 - q5;
-        q3 = (q2 / q5).toFixed(4);
+        q3 = (q2 / q1).toFixed(2);
         res.render('stats/show.ejs', { sol1: q1, sol2: q2, sol3: q3, sol4: q4, sol5: q5, errors: [] });
     }
     ).catch(function (error) { next(error) });
