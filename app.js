@@ -21,7 +21,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser('Quiz 2015'));
-app.use(session());
+app.use(session({secret:'yoursecret', cookie:{maxAge:6000}}));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -34,6 +34,27 @@ app.use(function(req, res, next) {
 
     // hacer visible  req.session en las vistas
     res.locals.session = req.session;
+    next();
+});
+
+// auto-logout
+app.use(function(req, res, next) {
+    if (req.session.user) {
+        var now = new Date();
+        var lastAccess = req.session.lastAccess;
+        var minutes = 2;
+        var seconds = 60;
+        var milliseconds = 1000;
+        var maxDate = new Date(lastAccess + minutes*seconds*milliseconds);
+
+        if (now > maxDate) {
+            delete req.session.user;
+        } else {
+            //   regenerar el ultimo acceso
+            req.session.lastAccess = new Date().getTime();
+        }
+    }
+  
     next();
 });
 

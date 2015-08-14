@@ -12,3 +12,7 @@ nav span				{margin: 0px 10px 0px 0px;}
 nav span				{margin: 0px 10px 0px 0px;}
 #ErrorMsgs				{color: #f61; font-size: smaller}
 span.right 				{float:right; text-align: right}
+td.text-left			{text-align: left; border: solid 1px #000;}
+td.text-right			{text-align: right; border: solid 1px #000;}
+table.border-1			{border: solid 2px #000;}
+table.margin-auto       {margin:auto;}
