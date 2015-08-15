@@ -100,7 +100,7 @@ exports.show = function(req, res) {
 exports.answer = function(req, res) {
 	var resultado = 'Incorrecto';
 	models.Quiz.findById(req.params.quizId).then(function(quiz) {
-	  if (req.query.respuesta === req.quiz.respuesta) {
+	  if (req.query.respuesta.trim().toUpperCase() === req.quiz.respuesta.trim().toUpperCase()) {
 	    resultado = 'Correcto';
 	  }
 	  res.render('quizes/answer', {quiz: req.quiz, respuesta: resultado, errors: []});
